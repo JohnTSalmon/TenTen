@@ -7,6 +7,8 @@ Version 0.0.1
 
 Version 0.0.1
 
+This is a Maven project
+
 run : tenten.feature
 Pass table parameters down from the feature file
 A DTO ( Data Transfer Object ) is used to pass parameters down to the step definitions
