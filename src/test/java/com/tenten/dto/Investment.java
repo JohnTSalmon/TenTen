@@ -10,7 +10,7 @@ public class Investment {
 
     public enum Frequency {
         DAILY(365),
-        WEEKLY(365),
+        WEEKLY(52),
         MONTHLY(12),
         QUARTERLY(4),
         YEARLY(1);
@@ -47,5 +47,6 @@ public class Investment {
         }
     }
 }
+
 
 
