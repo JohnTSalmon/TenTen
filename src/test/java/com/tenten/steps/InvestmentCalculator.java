@@ -12,28 +12,48 @@ import java.util.Map;
 
 public class InvestmentCalculator {
 
-    com.tenten.po.InvestmentCalculator investmentCalculator = new com.tenten.po.InvestmentCalculator();
+    com.tenten.po.nutmeg.InvestmentCalculator nutmegInvestmentCalculator = new com.tenten.po.nutmeg.InvestmentCalculator();
+    com.tenten.po.ten10.InvestmentCalculator ten10InvestmentCalculator = new com.tenten.po.ten10.InvestmentCalculator();
+
     Common common = new Common();
     Investment investment;
 
     @DataTableType
     public Investment decode(Map<String, String> row) {
-         return Investment.decode(new DTOMap(row));
+        return Investment.decode(new DTOMap(row));
     }
 
-    @When("I navigate to the Investment Calculator")
+    @When("I navigate to the Nutmeg Investment Calculator")
+    public void iNavigateToTheNutmegInvestmentCaclulator() {
+        nutmegInvestmentCalculator.openCalculator();
+    }
+
+    @When("I navigate to the Ten10 Investment Calculator")
     public void iNavigateToTheInvestmentCaclulator() {
-        investmentCalculator.openCalculator();
+        ten10InvestmentCalculator.openCalculator();
     }
 
-    @And("I input the following investment parameters")
-    public void iInputTheFollowingInvestmentParameters(Investment investment) {
+    @And("I input the following Nutmeg investment parameters")
+    public void iInputTheFollowingNutmegInvestmentParameters(Investment investment) {
         this.investment = investment;
-        investmentCalculator.input(investment);
+        nutmegInvestmentCalculator.input(investment);
     }
 
-    @Then("I should see the return on my investment")
-    public void iShouldSeeTheReturnOnMyInvestment() {
-        investmentCalculator.validate(investment);
+    @And("I input the following Ten10 investment parameters")
+    public void iInputTheFollowingTen10InvestmentParameters(Investment investment) {
+        this.investment = investment;
+        ten10InvestmentCalculator.input(investment);
     }
+
+    @Then("I should see the return on my Nutmeg investment")
+    public void iShouldSeeTheReturnOnMyNutmegInvestment() {
+        nutmegInvestmentCalculator.validate(investment);
+    }
+
+    @Then("I should see the return on my Ten10 investment")
+    public void iShouldSeeTheReturnOnMyTen10Investment() {
+        ten10InvestmentCalculator.validate(investment);
+    }
+
 }
+
