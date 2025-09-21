@@ -27,7 +27,7 @@ public class Investment {
 
     private Float initial;
     private Float interestRate;
-    private Integer duration;  // Years
+    private Integer duration;
     private Float contribution;
     private Frequency frequency;
 
@@ -46,3 +46,4 @@ public class Investment {
         }
     }
 }
+
