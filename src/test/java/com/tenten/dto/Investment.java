@@ -9,10 +9,11 @@ import lombok.Getter;
 public class Investment {
 
     public enum Frequency {
-        YEARLY(1),
-        QUARTERLY(4),
+        DAILY(365),
+        WEEKLY(365),
         MONTHLY(12),
-        DAILY(365);
+        QUARTERLY(4),
+        YEARLY(1);
 
         private final int value;
 
@@ -46,4 +47,5 @@ public class Investment {
         }
     }
 }
+
 
